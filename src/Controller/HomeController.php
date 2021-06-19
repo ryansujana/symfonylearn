@@ -2,18 +2,20 @@
 
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
-          class HomeController 
+          class HomeController extends AbstractController
           {
           /**
           * @Route("/", name="RouteName")
           */
           public function home()
           {
-                    $number = 125;
-                    return new Response ( content: "holaaa $number" );
+                    return $this->render('index.html.twig',[
+                              "var" => "Memang ganteng"
+                    ]);
           }
 
           /**
