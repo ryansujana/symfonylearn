@@ -2,7 +2,16 @@
 
 {% block title %}Holla{% endblock %}
 
-{% block body %}
-          <h1>Hola Hello World</h1>
-          <h3>{{ var }}</h3>
-{% endblock %}
+	{% block body %}
+		<h1>Hola Hello World</h1>
+		<h3>{{ var }}</h3>
+
+		
+		<ul>
+		{% if bool %}
+			{% for item in tabs %}
+				<li>{{ item }}</li>
+			{% endfor %}
+			</ul>
+		{% endif %}
+	{% endblock %}
