@@ -8,10 +8,11 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Repository\ArticleRepository;
 use App\Entity\Article;
 
+
 class HomeController extends AbstractController
 {
           /**
-          * @Route("/", name="RouteName")
+          * @Route("/", name="home")
           */
           public function home()
           {
