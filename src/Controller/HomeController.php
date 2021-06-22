@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use App\Repository\ArticleRepository;
+use App\Entity\Article;
 
 class HomeController extends AbstractController
 {
@@ -13,12 +15,17 @@ class HomeController extends AbstractController
           */
           public function home()
           {
-               $tabs = [1, 2, 3, 4, 5]; 
-               $bool = true;
+               $data =  $this->getDoctrine()->getManager();
+               $article = new Article();
+
+               $article->setTitle('artikel kami');
+               $article->setDescription('tentang deskripsi');
+               $article->setImage('images');
+               $article->setPublished(1);
+               $data->persist($article);
+               $data->flush();
                return $this->render('index.html.twig',[
-                    "var"     => "Memang ganteng",
-                    'tabs'    => $tabs,
-                    "bool"    => $bool
+                    "article" => $article
                ]);
           }
 
